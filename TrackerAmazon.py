@@ -158,7 +158,7 @@ while(True):
                 """
                 if block_div[block].find("span", attrs={'class':'a-price-whole'}) is not None:
                     if (locale.atof(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", ""))<=filtro_prezzo_massimo) and (locale.atof(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", ""))>=filtro_prezzo_minimo):
-                             
+                        print("entro nell'if")   
                         document.add_heading(str(block_div[block].find("span", attrs={"class":'a-size-base-plus a-color-base a-text-normal'})).replace("<span class=\"a-size-base-plus a-color-base a-text-normal\">", "").replace("</span>", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace("<", "").replace(">", "").replace("|", "").replace("\"", ""), 2)          
                         document.add_paragraph(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", "")+" "+"€")           
                                 
