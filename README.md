@@ -1,4 +1,4 @@
-# Programma di web scrapind di Amazon
+# Programma di web scraping di Amazon
 
 Il programma ha le seguenti funzionalità:
 
