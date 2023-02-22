@@ -12,6 +12,7 @@ import winsound
 import sys
 import tempfile
 import shutil
+import time
 import win32com.client
 locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
 
@@ -128,12 +129,15 @@ while(True):
         filtro_prezzo_massimo = float(input("Inserisci il massimo valore in euro che vuoi spendere: "))
         filtro_prezzo_minimo = float(input("Inserisci il minimo valore in euro che vuoi spendere: "))
         HEADERS = ({'User-Agent':
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0'})
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'})
         URL = f"https://www.amazon.it/s?k={ricerca}"
 
         webpage = requests.get(URL, headers=HEADERS)
-
+        
         soup = BeautifulSoup(webpage.text, "html.parser")
+        if "Si Ã¨ verificato un errore quando abbiamo tentato di elaborare la richiesta.<br/>Stiamo lavorando al problema e ci aspettiamo di risolverlo a breve. Si prega di notare che se stavi effettuando un ordine, non sarÃ  stato elaborato per il momento. Per favore riprova piÃ¹ tardi." in soup:
+            time.sleep(2)
+            continue
 
         block_div= soup.find_all("div", attrs={"class":"s-card-container s-overflow-hidden aok-relative puis-expand-height puis-include-content-margin puis s-latency-cf-section s-card-border"})
 
