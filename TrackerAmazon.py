@@ -129,7 +129,7 @@ while(True):
         filtro_prezzo_massimo = float(input("Inserisci il massimo valore in euro che vuoi spendere: "))
         filtro_prezzo_minimo = float(input("Inserisci il minimo valore in euro che vuoi spendere: "))
         HEADERS = ({'User-Agent':
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'})
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0'})
         URL = f"https://www.amazon.it/s?k={ricerca}"
 
         webpage = requests.get(URL, headers=HEADERS)
