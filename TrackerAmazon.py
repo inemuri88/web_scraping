@@ -91,7 +91,7 @@ def add_hyperlink(paragraph, url, text, color, underline):
 
 
 while(True):
-    scelta_def = int(input("Premi 1 se vuoi fare una ricerca su Amazon con filtro prezzi, premi 2 se invece vuoi tracciare i prezzi dei tuoi prodotti, se vuoi uscire dal programma premi 0: "))
+    scelta_def = int(input("Premi:\n1) se vuoi fare una ricerca su Amazon con filtro prezzi \n2) se invece vuoi tracciare i prezzi dei tuoi prodotti\nse vuoi uscire dal programma premi 0: "))
 
 
 
@@ -157,8 +157,8 @@ while(True):
 
                 """
                 if block_div[block].find("span", attrs={'class':'a-price-whole'}) is not None:
-                    if (locale.atof(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", ""))<=filtro_prezzo_massimo) and (locale.atof(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", ""))<=filtro_prezzo_minimo):
-                            
+                    if (locale.atof(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", ""))<=filtro_prezzo_massimo) and (locale.atof(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", ""))>=filtro_prezzo_minimo):
+                             
                         document.add_heading(str(block_div[block].find("span", attrs={"class":'a-size-base-plus a-color-base a-text-normal'})).replace("<span class=\"a-size-base-plus a-color-base a-text-normal\">", "").replace("</span>", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace("<", "").replace(">", "").replace("|", "").replace("\"", ""), 2)          
                         document.add_paragraph(str(block_div[block].find("span", attrs={'class':'a-price-whole'})).replace("<span class=\"a-price-whole\">", "").replace("</span>", "")+" "+"€")           
                                 
@@ -196,7 +196,7 @@ while(True):
 
         print("Vuoi vedere la lista di prodotti di cui stai tenendo traccia o vuoi inserire un nuovo prodotto?")
 
-        scelta_2 = int(input("Per inserire un prodotto premi 1, per visualizzare la lista dei prodotti premi 2, per eliminare un prodotto premi 3: "))
+        scelta_2 = int(input("-Per inserire un prodotto premi 1\n-Per visualizzare la lista dei prodotti premi 2\n-Per eliminare un prodotto premi 3: "))
 
 
 
