@@ -22,12 +22,12 @@ while True:
 
     print("Vuoi vedere la lista di prodotti di cui stai tenendo traccia o vuoi inserire un nuovo prodotto?")
 
-    scelta_2 = int(input("-Per inserire un prodotto premi 1\n-Per visualizzare la lista dei prodotti premi 2\n-Per eliminare un prodotto premi 3: "))
+    scelta = int(input("-Per inserire un prodotto premi 1\n-Per visualizzare la lista dei prodotti premi 2\n-Per eliminare un prodotto premi 3: "))
 
 
 
     #inserisco un nuovo prodotto tramite link
-    if scelta_2 == 1:
+    if scelta == 1:
             prodotto = input("Inserire il link del prodotto di cui si vuole tenere traccia: ")
             webpage = requests.get(prodotto, headers=HEADERS)
             soup = BeautifulSoup(webpage.text, "html.parser")
@@ -73,7 +73,7 @@ while True:
 
 
 
-    elif scelta_2 == 2:
+    elif scelta == 2:
             with open("products.csv", "r") as csvfile:
                 reader = csv.reader(csvfile)
                 for row in reader:
@@ -99,7 +99,7 @@ while True:
                         winsound.PlaySound("SystemExclamation", winsound.SND_ALIAS)
                         print(f"Il prezzo del prodotto appena mostrato è minore del prezzo di quando lo hai inserito, ora vale: {prezzo_fin2}\n")
 
-    elif scelta_2 == 3:
+    elif scelta == 3:
             # Definisci il nome del file CSV
             filename = 'products.csv'
 
