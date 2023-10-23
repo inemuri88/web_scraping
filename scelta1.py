@@ -46,8 +46,8 @@ def scelta1(HEADERS):
                 pass  # Nessuna operazione effettuata
 
             with open(filename, 'r') as csv_file:
-                reader = csv.reader(csv_file)
-                row_num = sum(1 for _ in reader)
+                        reader = csv.reader(csv_file)
+                        row_num = len(reader)
             lista_prodotti = [(f"{str(row_num + 1)})", title, str(prezzo_fin), prodotto)]
 
             with open("products.csv", "a", newline="", encoding="utf-8") as csvfile:
